@@ -29412,7 +29412,7 @@
 	
 	var ReactDOM = __webpack_require__(331);
 	
-	var Login = __webpack_require__(479);
+	var LoginUser = __webpack_require__(479);
 	
 	// Very few things in this component are a good idea.
 	// Feel free to blow it all away.
@@ -29481,11 +29481,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'Application' },
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(Login, { userName: this.state.user })
-	        ),
+	        _react2.default.createElement(LoginUser, { signInFunction: _firebase.signIn, user: this.state.user }),
 	        _react2.default.createElement(
 	          'ul',
 	          null,
@@ -47283,10 +47279,6 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(299);
@@ -47304,52 +47296,48 @@
 	var ReactDOM = __webpack_require__(331);
 	// const MessageInput = require('Message-Input');
 	
-	var Login = function (_Component) {
-	  _inherits(Login, _Component);
+	var LoginUser = function (_Component) {
+	  _inherits(LoginUser, _Component);
 	
-	  function Login() {
-	    _classCallCheck(this, Login);
+	  function LoginUser() {
+	    _classCallCheck(this, LoginUser);
 	
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (LoginUser.__proto__ || Object.getPrototypeOf(LoginUser)).apply(this, arguments));
 	  }
 	
-	  _createClass(Login, [{
+	  _createClass(LoginUser, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+	
 	      //if loggedIn = false, then render the login button
 	      //else display user name, message input component, buttons,
 	      return _react2.default.createElement(
 	        'div',
-	        null,
-	        user ? _react2.default.createElement(
-	          'div',
-	          null,
-	          ' Logged in as ',
-	          this.props.userName.displayName,
+	        { className: 'login-box' },
+	        this.props.user ? _react2.default.createElement(
+	          'p',
+	          { id: 'login-display' },
+	          'Logged in as ',
+	          this.props.user.displayName,
 	          ' (',
-	          this.props.userName.email,
+	          this.props.user.email,
 	          ')'
 	        ) : _react2.default.createElement(
-	          'div',
-	          null,
-	          ' ',
-	          _react2.default.createElement(
-	            'button',
-	            { id: 'btn-login', onClick: function onClick() {
-	                return signIn();
-	              } },
-	            'Log In'
-	          ),
-	          ' '
+	          'button',
+	          { id: 'btn-login', onClick: function onClick() {
+	              return _this2.props.signInFunction();
+	            } },
+	          'Sign In'
 	        )
 	      );
 	    }
 	  }]);
 	
-	  return Login;
+	  return LoginUser;
 	}(_react.Component);
 	
-	exports.default = Login;
+	module.exports = LoginUser;
 
 /***/ },
 /* 480 */
@@ -47383,10 +47371,10 @@
 
 	exports = module.exports = __webpack_require__(482)();
 	// imports
-	
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans);", ""]);
 	
 	// module
-	exports.push([module.id, "body {\n  background: #ff0080; }\n\n.hello-world {\n  font-family: cursive; }\n\n#new-message--content {\n  height: 100px;\n  border: 1px dotted aliceblue; }\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #ecf0f1; }\n\n.login-box {\n  background-color: red;\n  height: 50px;\n  width: 100%; }\n\n#new-message--content {\n  height: 100px;\n  border: 1px dotted aliceblue; }\n", ""]);
 	
 	// exports
 

@@ -1,12 +1,14 @@
-$wtf: #ff0080;
-$ridiculous: cursive;
+@import 'reset.scss';
+@import 'variables.scss';
 
 body {
-  background: $wtf;
+  background-color: $main-background-color;
 }
 
-.hello-world {
-  font-family: $ridiculous;
+.login-box {
+  background-color: $user-background-color;
+  height: 50px;
+  width: 100%;
 }
 
 #new-message--content {
