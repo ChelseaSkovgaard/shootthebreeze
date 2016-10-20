@@ -1,15 +1,26 @@
-$wtf: #ff0080;
-$ridiculous: cursive;
+@import 'reset.scss';
+@import 'variables.scss';
 
 body {
-  background: $wtf;
+  background-color: $main-background;
+  font-size: 30px;
+  font-family: $main-font;
+  font-weight: 300;
 }
 
-.hello-world {
-  font-family: $ridiculous;
+.login-box {
+  background-color: $user-login-background;
+  height: 60px;
+  width: 100%;
+  padding: 20px;
+  color: $header-field-font;
 }
 
 #new-message--content {
   height: 100px;
   border: 1px dotted aliceblue;
+}
+
+.user-name{
+  font-weight: bold;
 }
