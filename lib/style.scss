@@ -10,14 +10,19 @@ body {
 
 .login-box {
   background-color: $user-login-background;
-  height: 60px;
+  height: 80px;
   width: 100%;
-  padding: 20px;
   color: $header-field-font;
+  display: flex;
+  align-items: center;
+}
+
+#login-display {
+  margin-left: 25px;
 }
 
 #new-message--content {
-  height: 100px;
+  height: auto;
   border: 1px dotted aliceblue;
 }
 
@@ -27,7 +32,7 @@ body {
 
 .message-input {
   background-color: $input-area-background;
-  height: 80px;
+  height: 100px;
   width: 100%;
 }
 
@@ -39,11 +44,13 @@ input {
   display: inline-block;
 }
 
-.message-input-field {
+.message-input input {
   height: 40px;
-  margin: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 10px;
-  width: 50%;
+  width: 60%;
+  margin-left: 25px;
 }
 
 .btn-submit, .btn-clear {
@@ -53,21 +60,36 @@ input {
   height: 45px;
   font-size: 30px;
   color: $header-field-font;
-  margin: 7px;
-  padding: 5px;
+  width: 10%;
 }
 
 .btn-submit {
   background-color: $submit-btn-background;
+
 }
 
 .btn-clear {
   background-color: $clear-btn-background;
+  margin-left: 5%;
 }
 
 .character-count {
   display: inline-block;
   color: $header-field-font;
-  padding: 30px;
+  width: 5%;
+  margin-left: 5%;
+  font-size: 30px;
+}
 
+.date-name {
+  color: $date-font;
+}
+
+.user-name-message{
+  color: $user-font;
+  font-weight: bold;
+}
+
+li {
+  margin: 20px;
 }
