@@ -80,3 +80,16 @@ input {
   margin-left: 5%;
   font-size: 30px;
 }
+
+.date-name {
+  color: $date-font;
+}
+
+.user-name-message{
+  color: $user-font;
+  font-weight: bold;
+}
+
+li {
+  margin: 20px;
+}
