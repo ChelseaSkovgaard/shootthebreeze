@@ -8,6 +8,13 @@ body {
   font-weight: 300;
 }
 
+h1 {
+  color: $header-field-font;
+  font-size: 60px;
+  text-align: left;
+  margin: 20px;
+}
+
 .login-box {
   background-color: $user-login-background;
   height: 80px;
@@ -30,7 +37,7 @@ body {
   font-weight: bold;
 }
 
-.message-input {
+.message-input, .sort-filter-field {
   background-color: $input-area-background;
   height: auto;
   width: 100%;
@@ -48,7 +55,7 @@ input {
   display: inline-block;
 }
 
-.message-input-field {
+.message-field, .filter-field {
   height: 60px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -58,7 +65,7 @@ input {
   font-size: 40px;
 }
 
-.btn-submit, .btn-clear {
+.btn-submit, .btn-clear, .btn-sort {
   border: none;
   border-radius: 5px;
   display: inline-block;
@@ -78,6 +85,9 @@ input {
   margin-left: 50px;
 }
 
+.btn-sort{
+  background-color: $sort-btn-background;
+}
 .character-count {
   display: inline-block;
   color: $header-field-font;
