@@ -131,3 +131,9 @@ li {
 .user-list-current-user {
   font-weight: bold;
 }
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        color: red;
+    }
+}
