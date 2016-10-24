@@ -23,11 +23,11 @@ describe("<UserList>", () => {
     expect(true).to.be.true;
   });
 
-  it('should have props for messages and user', () => {
-
-
-    const wrapper = mount(<UserList />);
-    expect(UserList.prototype.loadWiki).to.be.true;
-  });
+  // it('should have props for messages and user', () => {
+  //
+  //
+  //   const wrapper = mount(<UserList />);
+  //   expect(UserList.prototype.loadWiki).to.be.true;
+  // });
 
 });
