@@ -12,16 +12,24 @@ export default class UserList extends Component {
     return sortedUniqBy(uniqueUsers, 'userName');
   }
 
+  lineItem(u, userClass) {
+    return (
+      <li className={userClass}>{u.userName.split(' ').slice(0,1)} {u.email}</li>
+    )
+  }
+
   render() {
+    let userListCurrentUser = 'user-list-current-user';
+    let userListUser = 'user-list-user';
     return (
       <aside className="user-list">
         <h3 className="user-list-heading">Users</h3>
         <ul>
           {this.uniqueUsers.map(u => {
             if (u.id === this.props.currentUser.uid) {
-              return <li className="user-list-current-user">{u.userName.split(' ').slice(0,1)} {u.email}</li>
+              return this.lineItem(u, userListCurrentUser)
             } else {
-              return <li className="user-list-user">{u.userName.split(' ').slice(0,1)} {u.email}</li>
+              return this.lineItem(u, userListUser)
             }
           })}
         </ul>
