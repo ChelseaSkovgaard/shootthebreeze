@@ -12,9 +12,12 @@ describe('SortButtons', () => {
     assert.equal(wrapper.type(), 'div');
     wrapper.find('button');
   });
+  
   it('renders two buttons', () => {
     const wrapper = shallow(<SortButtons />)
     const buttons = wrapper.find('button');
     expect(buttons.length).to.equal(2);
   });
+
+
 });
