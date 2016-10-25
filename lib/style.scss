@@ -141,11 +141,13 @@ li {
 
 .user-list-current-user {
   font-weight: bold;
-    background-image: url(./images/active-dot.svg);
+    background-image: url(./images/active-user.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
+    margin-top: 15px;
     display: inline-block;
+    background-position: center;
 }
 
 
