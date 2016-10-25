@@ -12,10 +12,12 @@ describe('ClearButton', () => {
     const wrapper = shallow(<ClearButton />)
     assert.equal(wrapper.type(), 'button');
   });
-  it('clears an input when clicked', () =>{
-    let clearInputCallback = sinon.spy();
-    const wrapper = mount(<ClearButton stateProp={clearInputCallback}/>);
+
+  it('clears input when clicked', () =>{
+    let clearMessageCallback = sinon.spy();
+    const wrapper = mount(<ClearButton clearMessageFunction={clearMessageCallback}/>);
     wrapper.find('button').simulate('click');
-    expect(clearInputCallback).to.have.property('callCount',1);
+    expect(clearMessageCallback).to.have.property('callCount', 1);
   });
+
 });
