@@ -136,6 +136,9 @@ li {
   display: inline-block;
   width: 70%;
 }
+.message-date-mobile {
+  display: none;
+}
 
 //user list field
 
@@ -163,5 +166,11 @@ li {
     }
     .messages {
       width: 100%;
+    }
+    .message-date{
+      display: none;
+    }
+    .message-date-mobile {
+      display: inline;
     }
 }
