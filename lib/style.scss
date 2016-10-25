@@ -18,6 +18,11 @@ h1 {
 
 }
 
+h3 {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
 input {
   background-color: $input-field-background;
   border: none;
@@ -39,12 +44,18 @@ li {
   align-items: center;
 }
 
+#login-display {
+  padding: 10px;
+}
+
 .user-name{
   font-weight: bold;
 }
+
 .messages-users {
   background-color: $user-list-background;
 }
+
 .message-input, .sort-filter-field {
   background-color: $input-area-background;
   height: auto;
@@ -114,6 +125,7 @@ li {
 }
 
 
+
 .messages {
   display: inline-block;
   width: 70%;
@@ -135,5 +147,7 @@ li {
     h1, .user-list {
         display: none;
     }
-
+    .messages {
+      width: 100%;
+    }
 }
