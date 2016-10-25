@@ -12,9 +12,9 @@ h1 {
   color: $header-field-font;
   font-size: 25px;
   font-weight: bold;
-  text-align: left;
   margin: 10px;
   margin-right: 20px;
+  text-align: left;
 
 }
 
@@ -35,13 +35,14 @@ li {
   margin: 10px;
 }
 
+//Login Area
 .login-box {
+  align-items: center;
   background-color: $user-login-background;
-  height: 50px;
-  width: 100%;
   color: $header-field-font;
   display: flex;
-  align-items: center;
+  height: 50px;
+  width: 100%;
 }
 
 #login-display {
@@ -52,10 +53,8 @@ li {
   font-weight: bold;
 }
 
-.messages-users {
-  background-color: $user-list-background;
-}
 
+//input fields - message and filter
 .message-input, .sort-filter-field {
   background-color: $input-area-background;
   height: auto;
@@ -68,29 +67,38 @@ li {
 
 .message-field, .filter-field {
   height: 20px;
-  margin-top: 10px;
   margin-bottom: 10px;
-  padding: 5px;
   margin-right: 50px;
+  margin-top: 10px;
+  padding: 5px;
 }
 
 .message-field{
   width: 60%;
 }
 
+.character-count {
+  color: $header-field-font;
+  display: inline-block;
+  font-size: 20px;
+  width: 75px;
+}
+
 .filter-field {
   width: 40%;
 }
 
+//Buttons
+
 .btn-submit, .btn-clear, .btn-sort {
   border: none;
   border-radius: 5px;
-  display: inline-block;
-  height: 30px;
-  font-size: 20px;
   color: $header-field-font;
-  margin-top: 10px;
+  display: inline-block;
+  font-size: 20px;
+  height: 30px;
   margin-bottom: 10px;
+  margin-top: 10px;
   width: 100px;
 }
 
@@ -108,15 +116,14 @@ li {
   margin-left: 10px;
 }
 
-.character-count {
-  display: inline-block;
-  color: $header-field-font;
-  width: 75px;
-  font-size: 20px;
-}
+//messages display
 
 .date-name {
   color: $date-font;
+}
+
+.messages-users {
+  background-color: $user-list-background;
 }
 
 .user-name-message{
@@ -124,32 +131,34 @@ li {
   font-weight: bold;
 }
 
-
-
 .messages {
+  background-color: $main-background;
   display: inline-block;
   width: 70%;
-  background-color: $main-background;
 }
+.message-date-mobile {
+  display: none;
+}
+
+//user list field
 
 .user-list{
   display: inline-block;
+  margin-top: 10px;
   width: 30%;
   vertical-align: top;
-  margin-top: 10px;
 }
 
 .user-list-current-user {
+  background-image: url(./images/active-user.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
   font-weight: bold;
-    background-image: url(./images/active-user.svg);
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    margin-top: 15px;
-    display: inline-block;
-    background-position: center;
+  height: 20px;
+  margin-top: 15px;
+  width: 20px;
 }
-
 
 @media only screen and (max-width: 600px) {
     h1, .user-list {
@@ -157,5 +166,11 @@ li {
     }
     .messages {
       width: 100%;
+    }
+    .message-date{
+      display: none;
+    }
+    .message-date-mobile {
+      display: inline;
     }
 }
