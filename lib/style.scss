@@ -3,23 +3,41 @@
 
 body {
   background-color: $main-background;
-  font-size: 40px;
+  font-size: 20px;
   font-family: $main-font;
   font-weight: 300;
 }
 
 h1 {
   color: $header-field-font;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bold;
   text-align: left;
-  margin: 20px;
-  margin-right: 150px;
+  margin: 10px;
+  margin-right: 20px;
+
+}
+
+h3 {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+input {
+  background-color: $input-field-background;
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  display: inline-block;
+}
+
+li {
+  margin: 10px;
 }
 
 .login-box {
   background-color: $user-login-background;
-  height: 100px;
+  height: 50px;
   width: 100%;
   color: $header-field-font;
   display: flex;
@@ -27,16 +45,15 @@ h1 {
 }
 
 #login-display {
-  margin-left: 25px;
-}
-
-#new-message--content {
-  height: auto;
-  border: 1px dotted aliceblue;
+  padding: 10px;
 }
 
 .user-name{
   font-weight: bold;
+}
+
+.messages-users {
+  background-color: $user-list-background;
 }
 
 .message-input, .sort-filter-field {
@@ -49,21 +66,12 @@ h1 {
   justify-content: center;
 }
 
-input {
-  background-color: $input-field-background;
-  border: none;
-  border-radius: 5px;
-  font-size: 30px;
-  display: inline-block;
-}
-
 .message-field, .filter-field {
-  height: 60px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 10px;
-  margin-right: 100px;
-  font-size: 40px;
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  margin-right: 50px;
 }
 
 .message-field{
@@ -78,11 +86,12 @@ input {
   border: none;
   border-radius: 5px;
   display: inline-block;
-  height: 75px;
-  font-size: 40px;
+  height: 30px;
+  font-size: 20px;
   color: $header-field-font;
-  margin: 20px;
-  width: 250px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100px;
 }
 
 .btn-submit {
@@ -91,18 +100,19 @@ input {
 
 .btn-clear {
   background-color: $clear-btn-background;
-  margin-left: 50px;
+  margin-left: 25px;
 }
 
 .btn-sort{
   background-color: $sort-btn-background;
+  margin-left: 10px;
 }
 
 .character-count {
   display: inline-block;
   color: $header-field-font;
   width: 75px;
-  font-size: 40px;
+  font-size: 20px;
 }
 
 .date-name {
@@ -114,20 +124,30 @@ input {
   font-weight: bold;
 }
 
-li {
-  margin: 20px;
-}
+
 
 .messages {
   display: inline-block;
   width: 70%;
+  background-color: $main-background;
 }
 
 .user-list{
   display: inline-block;
   width: 30%;
+  vertical-align: top;
+  margin-top: 10px;
 }
 
 .user-list-current-user {
   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    h1, .user-list {
+        display: none;
+    }
+    .messages {
+      width: 100%;
+    }
 }
