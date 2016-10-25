@@ -29426,7 +29426,7 @@
 	
 	var _SubmitButton2 = _interopRequireDefault(_SubmitButton);
 	
-	var _UserList = __webpack_require__(484);
+	var _UserList = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./User-List\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var _UserList2 = _interopRequireDefault(_UserList);
 	
@@ -29546,6 +29546,16 @@
 	      }
 	    }
 	  }, {
+	    key: 'filtered',
+	    value: function filtered() {
+	      // debugger;
+	      if (this.state.filterString) {
+	        return this.state.filteredMessages;
+	      } else {
+	        return this.state.messages;
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _state2 = this.state;
@@ -29554,6 +29564,7 @@
 	      var draftMessage = _state2.draftMessage;
 	      var filteredMessages = _state2.filteredMessages;
 	
+	      var messageListItems = this.filtered();
 	
 	      return _react2.default.createElement(
 	        'div',
@@ -29567,7 +29578,7 @@
 	            ' Shoot the Breeze '
 	          ),
 	          _react2.default.createElement(_Filter2.default, { filterMessages: this.filterMessages.bind(this) }),
-	          _react2.default.createElement(_Sort2.default, { messages: this.state.messages, sortMessagesFunction: this.sortMessages.bind(this) })
+	          _react2.default.createElement(_Sort2.default, { messages: messageListItems, sortMessagesFunction: this.sortMessages.bind(this) })
 	        ),
 	        _react2.default.createElement(
 	          'article',
@@ -29575,9 +29586,9 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'messages' },
-	            _react2.default.createElement(_MessageList2.default, { messages: this.state.messages, filterMessages: this.state.filter })
+	            _react2.default.createElement(_MessageList2.default, { messages: messageListItems, filterMessages: this.state.filter })
 	          ),
-	          _react2.default.createElement(_UserList2.default, { messages: this.state.messages, currentUser: this.state.user })
+	          _react2.default.createElement(_UserList2.default, { messages: messageListItems, currentUser: this.state.user })
 	        ),
 	        _react2.default.createElement(_Login2.default, { signInFunction: _firebase.signIn, user: this.state.user }),
 	        _react2.default.createElement(
@@ -47640,100 +47651,7 @@
 	exports.default = SubmitButton;
 
 /***/ },
-/* 484 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(299);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactDom = __webpack_require__(331);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _lodash = __webpack_require__(470);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var UserList = function (_Component) {
-	  _inherits(UserList, _Component);
-	
-	  function UserList() {
-	    _classCallCheck(this, UserList);
-	
-	    return _possibleConstructorReturn(this, (UserList.__proto__ || Object.getPrototypeOf(UserList)).apply(this, arguments));
-	  }
-	
-	  _createClass(UserList, [{
-	    key: 'lineItem',
-	    value: function lineItem(u, userClass) {
-	      return _react2.default.createElement(
-	        'li',
-	        { className: userClass },
-	        u.userName.split(' ').slice(0, 1),
-	        ' ',
-	        u.email
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var userListCurrentUser = 'user-list-current-user';
-	      var userListUser = 'user-list-user';
-	      return _react2.default.createElement(
-	        'aside',
-	        { className: 'user-list' },
-	        _react2.default.createElement(
-	          'h3',
-	          { className: 'user-list-heading' },
-	          'Users'
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          null,
-	          this.uniqueUsers.map(function (u) {
-	            if (u.id === _this2.props.currentUser.uid) {
-	              return _this2.lineItem(u, userListCurrentUser);
-	            } else {
-	              return _this2.lineItem(u, userListUser);
-	            }
-	          })
-	        )
-	      );
-	    }
-	  }, {
-	    key: 'uniqueUsers',
-	    get: function get() {
-	      var users = this.props.messages.map(function (m) {
-	        return { userName: m.user.displayName, id: m.user.uid, email: m.user.email };
-	      });
-	      var uniqueUsers = (0, _lodash.uniqBy)(users, 'id');
-	      return (0, _lodash.sortedUniqBy)(uniqueUsers, 'userName');
-	    }
-	  }]);
-	
-	  return UserList;
-	}(_react.Component);
-	
-	exports.default = UserList;
-
-/***/ },
+/* 484 */,
 /* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62353,7 +62271,7 @@
 	var content = __webpack_require__(595);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(597)(content, {});
+	var update = __webpack_require__(598)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -62378,7 +62296,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700);", ""]);
 	
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  background-color: #ecf0f1;\n  font-size: 20px;\n  font-family: \"Fira Sans\", sans-serif;\n  font-weight: 300; }\n\nh1 {\n  color: white;\n  font-size: 25px;\n  font-weight: bold;\n  text-align: left;\n  margin: 10px;\n  margin-right: 75px; }\n  @media screen and (max-width: 600px) {\n    h1 h1 {\n      color: red; } }\n\ninput {\n  background-color: #cbd0d3;\n  border: none;\n  border-radius: 3px;\n  font-size: 15px;\n  display: inline-block; }\n\n.login-box {\n  background-color: #7f8c8d;\n  height: 50px;\n  width: 100%;\n  color: white;\n  display: flex;\n  align-items: center; }\n\n#login-display {\n  margin-left: 15px; }\n\n#new-message--content {\n  height: auto;\n  border: 1px dotted aliceblue; }\n\n.user-name {\n  font-weight: bold; }\n\n.message-input, .sort-filter-field {\n  background-color: #2c3e50;\n  height: auto;\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center; }\n\n.message-field, .filter-field {\n  height: 20px;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  padding: 5px;\n  margin-right: 50px; }\n\n.message-field {\n  width: 60%; }\n\n.filter-field {\n  width: 40%; }\n\n.btn-submit, .btn-clear, .btn-sort {\n  border: none;\n  border-radius: 5px;\n  display: inline-block;\n  height: 30px;\n  font-size: 20px;\n  color: white;\n  margin: 10px;\n  width: 250px; }\n\n.btn-submit {\n  background-color: #2ecc71; }\n\n.btn-clear {\n  background-color: #e74c3c;\n  margin-left: 50px; }\n\n.btn-sort {\n  background-color: #3498db; }\n\n.character-count {\n  display: inline-block;\n  color: white;\n  width: 75px;\n  font-size: 20px; }\n\n.date-name {\n  color: #9b59b6; }\n\n.user-name-message {\n  color: #2980b9;\n  font-weight: bold; }\n\nli {\n  margin: 10px; }\n\n.messages {\n  display: inline-block;\n  width: 70%; }\n\n.user-list {\n  display: inline-block;\n  width: 30%; }\n\n.user-list-current-user {\n  font-weight: bold; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  background-color: #ecf0f1;\n  font-size: 20px;\n  font-family: \"Fira Sans\", sans-serif;\n  font-weight: 300; }\n\nh1 {\n  color: white;\n  font-size: 25px;\n  font-weight: bold;\n  text-align: left;\n  margin: 10px;\n  margin-right: 20px; }\n\nh3 {\n  font-weight: bold;\n  margin-left: 10px; }\n\ninput {\n  background-color: #cbd0d3;\n  border: none;\n  border-radius: 3px;\n  font-size: 15px;\n  display: inline-block; }\n\nli {\n  margin: 10px; }\n\n.login-box {\n  background-color: #7f8c8d;\n  height: 50px;\n  width: 100%;\n  color: white;\n  display: flex;\n  align-items: center; }\n\n#login-display {\n  padding: 10px; }\n\n.user-name {\n  font-weight: bold; }\n\n.messages-users {\n  background-color: #cbd0d3; }\n\n.message-input, .sort-filter-field {\n  background-color: #2c3e50;\n  height: auto;\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center; }\n\n.message-field, .filter-field {\n  height: 20px;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  padding: 5px;\n  margin-right: 50px; }\n\n.message-field {\n  width: 60%; }\n\n.filter-field {\n  width: 40%; }\n\n.btn-submit, .btn-clear, .btn-sort {\n  border: none;\n  border-radius: 5px;\n  display: inline-block;\n  height: 30px;\n  font-size: 20px;\n  color: white;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100px; }\n\n.btn-submit {\n  background-color: #2ecc71; }\n\n.btn-clear {\n  background-color: #e74c3c;\n  margin-left: 25px; }\n\n.btn-sort {\n  background-color: #3498db;\n  margin-left: 10px; }\n\n.character-count {\n  display: inline-block;\n  color: white;\n  width: 75px;\n  font-size: 20px; }\n\n.date-name {\n  color: #9b59b6; }\n\n.user-name-message {\n  color: #2980b9;\n  font-weight: bold; }\n\n.messages {\n  display: inline-block;\n  width: 70%;\n  background-color: #ecf0f1; }\n\n.user-list {\n  display: inline-block;\n  width: 30%;\n  vertical-align: top;\n  margin-top: 10px; }\n\n.user-list-current-user {\n  font-weight: bold; }\n\n.current-user-image {\n  background-image: url(" + __webpack_require__(597) + "); }\n\n@media only screen and (max-width: 600px) {\n  h1, .user-list {\n    display: none; }\n  .messages {\n    width: 100%; } }\n", ""]);
 	
 	// exports
 
@@ -62441,6 +62359,12 @@
 
 /***/ },
 /* 597 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "0168ea77426beeca2fe50517ae2c6bc2.svg";
+
+/***/ },
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

@@ -141,7 +141,13 @@ li {
 
 .user-list-current-user {
   font-weight: bold;
+    background-image: url(./images/active-dot.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
 }
+
 
 @media only screen and (max-width: 600px) {
     h1, .user-list {
