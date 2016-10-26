@@ -90,7 +90,7 @@ li {
 
 //Buttons
 
-.btn-submit, .btn-clear, .btn-sort {
+.btn-submit, .btn-clear, .btn-sort, .btn-login {
   border: none;
   border-radius: 5px;
   color: $header-field-font;
@@ -102,7 +102,7 @@ li {
   width: 100px;
 }
 
-.btn-submit {
+.btn-submit, .btn-login {
   background-color: $submit-btn-background;
 }
 
