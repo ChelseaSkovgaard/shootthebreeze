@@ -1,33 +1,35 @@
 import React from 'react';
-import { expect } from 'chai';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import { expect, assert } from 'chai';
 import { mount, shallow } from 'enzyme';
 import UserList from '../lib/components/User-List';
 
-describe("<UserList>", () => {
+describe("UserList", () => {
 
-  var messages;
+  var array;
 
-  beforeEach( () => {
-    messages = {
-      content: "draftMessage",
-      createdAt: Date.now(),
-      user: {
-      displayName: "Bob Smith",
-      uid: "12345",
-      email: "foo@foo.com"
+  beforeEach(() => {
+    array = {
+      messages: {
+        user: {
+          displayName: 'Chelsea Skovgaard',
+          email: 'chelseaskovgaard@gmail.com',
+          uid: '0728'
+        },
+        content: 'Broncos Rule'
       }
     }
+  })
+
+  it('renders as an <aside>', () => {
+    const wrapper = shallow(<UserList messages={[]}/>)
+    assert.equal(wrapper.type(), 'aside');
   });
 
-  it('works, hopefully', () => {
-    expect(true).to.be.true;
+  it('counts the characters of the input field', () => {
+    const wrapper = shallow(<UserList messages={array} />)
+    expect(wrapper.find('.user-list-user').text()).to.equal('7');
   });
-
-  // it('should have props for messages and user', () => {
-  //
-  //
-  //   const wrapper = mount(<UserList />);
-  //   expect(UserList.prototype.loadWiki).to.be.true;
-  // });
 
 });
