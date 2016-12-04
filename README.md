@@ -1,13 +1,17 @@
 # Shoot The Breeze
 
-([Project Specification](http://frontend.turing.io/projects/shoot-the-breeze))
+##Description
 
-Setup setups:
+This is a realtime messaging app, built with React and Firebase.
 
-- Clone this repository.
-- `npm install`
-- Set up a new Firebase application.
-- Replace the keys in `./lib/firebase.js`.
-- Turn on Google authentication in the Firebase specification.
-- Add the name of your project as the default in the .firebaserc file. This is the name you gave it in firebase, plus the string of characters that firebase appended, e.g. "shoot-the-breeze-aa5d9" 
-- `npm start` or `npm test`.
+##Usage
+
+To use the app, press `LogIn`. We use Google Auth for login.
+
+To enter a message, type in the input field and then press `Submit`.
+
+##Features
+
+You can sort messages from newest to oldest.
+
+You can also filter by User.
